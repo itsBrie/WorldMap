@@ -1,1 +1,24 @@
-<p>world-map works!</p>
+<div class="flex">
+  <div class="w-1/2 bg-blue-100">
+    <object
+      type="image/svg+xml"
+      data="assets/world02.svg"
+      (load)="handleSvgLoad($event)"
+    ></object>
+    <!-- Citation: Welcome to my innovation sandbox. Innovation Sandbox. (n.d.). https://innovsandbox.space/  -->
+  </div>
+
+  <div class="w-1/2 bg-blue-200 p-2">
+    <h2>Details</h2>
+    <div *ngIf="countryInfo">
+      <p>Country Name:{{ countryInfo.name }}</p>
+      <p>Capital : {{ countryInfo.capitalCity }}</p>
+      <p>Region: {{ countryInfo.region.value }}</p>
+      <p>Income Level: {{ countryInfo.incomeLevel.value }}</p>
+      <p>Longitude: {{ countryInfo.longitude }}</p>
+      <p>Latitude: {{ countryInfo.latitude }}</p>
+
+    </div>
+    <div *ngIf="!countryInfo">Click on a country for details</div>
+  </div>
+</div>
